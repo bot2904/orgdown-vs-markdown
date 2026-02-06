@@ -207,6 +207,36 @@
                             feature: 'Tables',
                             orgdown: '| Name | Age |\n|------+-----|\n| Alice| 25  |',
                             markdown: '| Name | Age |\n| --- | --- |\n| Alice | 25 |'
+                        },
+                        {
+                            feature: 'Deadlines & Scheduling',
+                            orgdown: '* Task\n  DEADLINE: <2026-02-06 Fri>\n  SCHEDULED: <2026-02-07 Sat>',
+                            markdown: '(No native Markdown syntax for temporal metadata)'
+                        },
+                        {
+                            feature: 'Properties & Drawers',
+                            orgdown: ':PROPERTIES:\n:ID: 550e8400-e29b\n:CUSTOM_ID: my-node\n:END:',
+                            markdown: '(No native syntax; usually requires YAML frontmatter at top of file)'
+                        },
+                        {
+                            feature: 'Footnotes',
+                            orgdown: 'Here is a reference [fn:1]\n\n[fn:1] The footnote text.',
+                            markdown: 'Here is a reference [^1]\n\n[^1]: The footnote text.'
+                        },
+                        {
+                            feature: 'Tags',
+                            orgdown: '* Project Alpha :work:urgent:',
+                            markdown: '(No native syntax for inline heading tags)'
+                        },
+                        {
+                            feature: 'Blocks (Quote/Example)',
+                            orgdown: '#+BEGIN_QUOTE\nWords of wisdom.\n#+END_QUOTE',
+                            markdown: '> Words of wisdom.'
+                        },
+                        {
+                            feature: 'Comments',
+                            orgdown: '# This is a hidden comment',
+                            markdown: '<!-- This is a hidden comment -->'
                         }
                     ]
                 }
