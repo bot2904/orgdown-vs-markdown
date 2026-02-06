@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Org-mode vs Orgdown | Syntax Compare</title>
+    <title>Orgdown vs Markdown | Syntax Compare</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -105,7 +105,7 @@
                 SYNTAX_MATRIX
             </h1>
             <p class="text-xl text-gray-400 font-light uppercase tracking-widest">
-                Org-mode <span class="text-cyan-400 mx-2">VS</span> Orgdown
+                Orgdown <span class="text-cyan-400 mx-2">VS</span> Markdown
             </p>
         </header>
 
@@ -120,22 +120,22 @@
                 </div>
 
                 <div class="compare-grid">
-                    <!-- Org-mode side -->
+                    <!-- Orgdown side -->
                     <div class="glass p-6 rounded-lg transition-all duration-500 hover:neon-border-cyan group-hover:translate-y-[-4px]">
                         <div class="flex justify-between items-center mb-4">
-                            <span class="text-xs font-bold text-cyan-400 tracking-widest uppercase">Org-mode</span>
-                            <span class="text-[10px] text-gray-600 uppercase">Legacy System</span>
-                        </div>
-                        <pre class="syntax-font text-sm leading-relaxed overflow-x-auto p-4 bg-black/40 rounded border border-white/5">{{ item.orgmode }}</pre>
-                    </div>
-
-                    <!-- Orgdown side -->
-                    <div class="glass p-6 rounded-lg transition-all duration-500 hover:neon-border-magenta group-hover:translate-y-[-4px]">
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="text-xs font-bold text-magenta-500 tracking-widest uppercase">Orgdown</span>
-                            <span class="text-[10px] text-gray-600 uppercase">Standardized</span>
+                            <span class="text-xs font-bold text-cyan-400 tracking-widest uppercase">Orgdown</span>
+                            <span class="text-[10px] text-gray-600 uppercase">Org-style Syntax</span>
                         </div>
                         <pre class="syntax-font text-sm leading-relaxed overflow-x-auto p-4 bg-black/40 rounded border border-white/5">{{ item.orgdown }}</pre>
+                    </div>
+
+                    <!-- Markdown side -->
+                    <div class="glass p-6 rounded-lg transition-all duration-500 hover:neon-border-magenta group-hover:translate-y-[-4px]">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xs font-bold text-magenta-500 tracking-widest uppercase">Markdown</span>
+                            <span class="text-[10px] text-gray-600 uppercase">CommonMark / GFM</span>
+                        </div>
+                        <pre class="syntax-font text-sm leading-relaxed overflow-x-auto p-4 bg-black/40 rounded border border-white/5">{{ item.markdown }}</pre>
                     </div>
                 </div>
             </div>
@@ -157,9 +157,9 @@
             
             <div class="token-info space-y-1">
                 <p>MODEL: <span class="text-magenta-400">GEMINI-3-FLASH-PREVIEW</span></p>
-                <p>REVISION: <span class="text-cyan-400">2077525</span></p>
-                <p>TOKENS_ESTIMATED: <span class="text-yellow-400">~6,500</span></p>
-                <p>PROCESS_TIME: <span class="text-green-400">~180s</span></p>
+                <p>REVISION: <span class="text-cyan-400">eb0b0f7</span></p>
+                <p>TOKENS_ESTIMATED: <span class="text-yellow-400">~8,000</span></p>
+                <p>PROCESS_TIME: <span class="text-green-400">~240s</span></p>
                 <p>LOCATION: GRAZ, AUSTRIA</p>
                 <p class="pt-4 text-[9px] text-gray-700">NEURAL ARCHITECTURE INITIALIZED. ALL SYSTEMS NOMINAL.</p>
             </div>
@@ -175,33 +175,38 @@
                     comparisons: [
                         {
                             feature: 'Headings',
-                            orgmode: '* Heading 1\n** Heading 2\n*** Heading 3',
-                            orgdown: '* Heading 1\n** Heading 2\n*** Heading 3\n(Similar, but strictly space-separated)'
+                            orgdown: '* Heading 1\n** Heading 2\n*** Heading 3',
+                            markdown: '# Heading 1\n## Heading 2\n### Heading 3'
                         },
                         {
                             feature: 'Emphasis',
-                            orgmode: '*bold* /italic/ _underline_ \n+strikethrough+ ~code~ =verbatim=',
-                            orgdown: '*bold* /italic/ _underline_ \n+strikethrough+ ~code~ =verbatim='
+                            orgdown: '*bold* /italic/ _underline_ \n+strikethrough+ ~code~ =verbatim=',
+                            markdown: '**bold** *italic* \n~~strikethrough~~ `code`'
+                        },
+                        {
+                            feature: 'Lists',
+                            orgdown: '- Item 1\n- Item 2\n  + Sub-item',
+                            markdown: '- Item 1\n- Item 2\n  - Sub-item'
                         },
                         {
                             feature: 'Checkboxes',
-                            orgmode: '- [ ] To do\n- [X] Done\n- [-] In progress',
-                            orgdown: '- [ ] To do\n- [x] Done (Lowercase x allowed)'
+                            orgdown: '- [ ] To do\n- [x] Done',
+                            markdown: '- [ ] To do\n- [x] Done'
                         },
                         {
                             feature: 'Links',
-                            orgmode: '[[https://orgmode.org][Org Mode]]\n[[file:path/to/file]]',
-                            orgdown: '[[https://orgdown.org][Orgdown]]\n(Strict URI compliance focus)'
+                            orgdown: '[[https://orgdown.org][Orgdown]]',
+                            markdown: '[Markdown](https://commonmark.org)'
                         },
                         {
                             feature: 'Source Blocks',
-                            orgmode: '#+BEGIN_SRC python\nprint("Hello")\n#+END_SRC',
-                            orgdown: '```python\nprint("Hello")\n```\n(Orgdown 1.0 focuses on MD-style triple backticks for compatibility)'
+                            orgdown: '```python\nprint("Hello")\n```',
+                            markdown: '```python\nprint("Hello")\n```'
                         },
                         {
-                            feature: 'Metadata',
-                            orgmode: '#+TITLE: My Document\n#+AUTHOR: Agent',
-                            orgdown: '--- (Frontmatter style)\ntitle: My Document\n---'
+                            feature: 'Tables',
+                            orgdown: '| Name | Age |\n|------+-----|\n| Alice| 25  |',
+                            markdown: '| Name | Age |\n| --- | --- |\n| Alice | 25 |'
                         }
                     ]
                 }
